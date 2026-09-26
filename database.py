@@ -1,13 +1,6 @@
-from sqlalchemy import create_engine, text
+import os
+from sqlalchemy import create_engine
 
-DATABASE_URL = "postgresql://postgres:supun@localhost:5430/fastapi_project"
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 engine = create_engine(DATABASE_URL)
-
-try:
-    with engine.connect() as connection:
-        result = connection.execute(text("SELECT 1"))
-
-except Exception as e:
-    print("Connection failed:")
-    print(e)

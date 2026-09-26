@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: my-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: supun
+      POSTGRES_DB: fastapi_project
+    ports:
+      - "5430:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    container_name: my-fastapi
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql+psycopg://postgres:supun@db:5432/fastapi_project
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
