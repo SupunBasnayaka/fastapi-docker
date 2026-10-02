@@ -1,0 +1,20 @@
+# FastAPI Docker Project
+
+A simple REST API built with **FastAPI**, connected to **PostgreSQL** using **SQLAlchemy**, and containerized with **Docker**.
+
+## Technologies
+
+- Python
+- FastAPI
+- PostgreSQL
+- SQLAlchemy
+- Pydantic
+- Docker
+
+## Features
+
+- Connect FastAPI to PostgreSQL
+- Retrieve data from the database
+- Add new users
+- Use Pydantic models for request validation
+- Run the application in Docker
